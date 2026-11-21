@@ -1,0 +1,289 @@
+<html><body><meta charset="utf-8"><style>
+.title {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+body {
+  white-space:break-spaces;
+   word-wrap:break-word;
+ }
+</style><h2 class="title">index</h2><p></p><div align="left">
+ <span style="font-size:16">People&nbsp;&amp;&nbsp;Culture:&nbsp;Follow&nbsp;My&nbsp;Festival&nbsp;Journey</span>
+</div><div align="left">
+ <span style="font-size:16">&lt;!--&nbsp;Welcome&nbsp;Screen&nbsp;--&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&lt;div&nbsp;id="welcome-screen"&nbsp;class="screen&nbsp;active-screen"&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Welcome&nbsp;to&nbsp;the&nbsp;Multicultural&nbsp;Festival!&lt;/h2&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Help&nbsp;our&nbsp;friend&nbsp;explore&nbsp;the&nbsp;festival&nbsp;by&nbsp;listening&nbsp;carefully&nbsp;to&nbsp;the&nbsp;instructions.&lt;/p&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&lt;button&nbsp;class="btn"&nbsp;onclick="startGame()"&gt;Start&nbsp;Journey&lt;/button&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&lt;/div&gt;</span>
+</div><br><div align="left">
+ <span style="font-size:16">&lt;!--&nbsp;Game&nbsp;Screen&nbsp;--&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&lt;div&nbsp;id="game-screen"&nbsp;class="screen"&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class="stats"&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Score:&nbsp;&lt;span&nbsp;id="score"&gt;0&lt;/span&gt;&lt;/div&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Lives:&nbsp;&lt;span&nbsp;id="lives"&gt;❤❤❤&lt;/span&gt;&lt;/div&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Mission:&nbsp;&lt;span&nbsp;id="mission-step"&gt;1/3&lt;/span&gt;&lt;/div&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</span>
+</div><br><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id="map-container"&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id="char"&gt;🚶&lt;/div&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class="map-location"&nbsp;style="top:&nbsp;20px;&nbsp;left:&nbsp;20px;"&nbsp;onclick="selectLocation('entrance')"&gt;Entrance&lt;/div&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class="map-location"&nbsp;style="top:&nbsp;20px;&nbsp;right:&nbsp;20px;"&nbsp;onclick="selectLocation('dance')"&gt;Dance&nbsp;Stage&lt;/div&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class="map-location"&nbsp;style="top:&nbsp;180px;&nbsp;left:&nbsp;40%;"&nbsp;onclick="selectLocation('food')"&gt;Food&nbsp;Stalls&lt;/div&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class="map-location"&nbsp;style="bottom:&nbsp;20px;&nbsp;left:&nbsp;20px;"&nbsp;onclick="selectLocation('craft')"&gt;Craft&nbsp;Corner&lt;/div&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class="map-location"&nbsp;style="bottom:&nbsp;20px;&nbsp;right:&nbsp;20px;"&nbsp;onclick="selectLocation('garden')"&gt;Garden&lt;/div&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</span>
+</div><br><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;Mission:&nbsp;&lt;span&nbsp;id="instruction-text"&gt;Listen&nbsp;to&nbsp;the&nbsp;audio&nbsp;and&nbsp;find&nbsp;the&nbsp;location!&lt;/span&gt;&lt;/h3&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class="audio-player"&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;audio&nbsp;id="game-audio"&nbsp;controls&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;source&nbsp;id="audio-source"&nbsp;src=""&nbsp;type="audio/mpeg"&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Your&nbsp;browser&nbsp;does&nbsp;not&nbsp;support&nbsp;the&nbsp;audio&nbsp;element.</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/audio&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</span>
+</div><br><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class="options-grid"&nbsp;id="options-container"&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&nbsp;Dynamic&nbsp;buttons&nbsp;--&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&lt;/div&gt;</span>
+</div><br><div align="left">
+ <span style="font-size:16">&lt;!--&nbsp;Completion&nbsp;Screen&nbsp;--&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&lt;div&nbsp;id="completion-screen"&nbsp;class="screen"&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;🎉&nbsp;Journey&nbsp;Completed!&nbsp;🎉&lt;/h2&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;You&nbsp;have&nbsp;successfully&nbsp;navigated&nbsp;the&nbsp;festival!&lt;/p&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Final&nbsp;Score:&nbsp;&lt;span&nbsp;id="final-score"&gt;0&lt;/span&gt;&lt;/p&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&lt;button&nbsp;class="btn"&nbsp;onclick="restartGame()"&gt;Play&nbsp;Again&lt;/button&gt;</span>
+</div><div align="left">
+ <span style="font-size:16">&lt;/div&gt;</span>
+</div><br><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;locations&nbsp;=&nbsp;{</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;entrance:&nbsp;{&nbsp;top:&nbsp;30,&nbsp;left:&nbsp;40&nbsp;},</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dance:&nbsp;{&nbsp;top:&nbsp;30,&nbsp;left:&nbsp;800&nbsp;-&nbsp;120&nbsp;},</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;food:&nbsp;{&nbsp;top:&nbsp;190,&nbsp;left:&nbsp;360&nbsp;},</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;craft:&nbsp;{&nbsp;top:&nbsp;400&nbsp;-&nbsp;65,&nbsp;left:&nbsp;40&nbsp;},</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;garden:&nbsp;{&nbsp;top:&nbsp;400&nbsp;-&nbsp;65,&nbsp;left:&nbsp;800&nbsp;-&nbsp;120&nbsp;}</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;};</span>
+</div><br><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Utilizing&nbsp;highly&nbsp;reliable&nbsp;public&nbsp;domain/open&nbsp;instructional&nbsp;audio&nbsp;samples</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;missions&nbsp;=&nbsp;[</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;audio:&nbsp;"https://actions.google.com/sounds/v1/ambiences/carnival_midway.ogg",</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;instruction:&nbsp;"Welcome!&nbsp;Walk&nbsp;straight&nbsp;ahead&nbsp;from&nbsp;the&nbsp;entrance&nbsp;to&nbsp;reach&nbsp;the&nbsp;delicious&nbsp;Food&nbsp;Stalls.",</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;correct:&nbsp;"food",</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options:&nbsp;["Food&nbsp;Stalls",&nbsp;"Craft&nbsp;Corner"]</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;audio:&nbsp;"https://actions.google.com/sounds/v1/doors/heavy_door_open.ogg",</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;instruction:&nbsp;"From&nbsp;the&nbsp;Food&nbsp;Stalls,&nbsp;turn&nbsp;right&nbsp;and&nbsp;go&nbsp;past&nbsp;the&nbsp;gardens&nbsp;to&nbsp;find&nbsp;the&nbsp;Traditional&nbsp;Dance&nbsp;Stage.",</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;correct:&nbsp;"dance",</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options:&nbsp;["Dance&nbsp;Stage",&nbsp;"Festival&nbsp;Entrance"]</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;audio:&nbsp;"https://actions.google.com/sounds/v1/crowds/crowd_cheering.ogg",</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;instruction:&nbsp;"Finally,&nbsp;head&nbsp;over&nbsp;to&nbsp;the&nbsp;Traditional&nbsp;Craft&nbsp;Corner&nbsp;to&nbsp;see&nbsp;the&nbsp;beautiful&nbsp;handmade&nbsp;items.",</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;correct:&nbsp;"craft",</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options:&nbsp;["Traditional&nbsp;Craft&nbsp;Corner",&nbsp;"Festival&nbsp;Garden"]</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;];</span>
+</div><br><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;let&nbsp;currentMission&nbsp;=&nbsp;0;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;let&nbsp;score&nbsp;=&nbsp;0;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;let&nbsp;lives&nbsp;=&nbsp;3;</span>
+</div><br><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;startGame()&nbsp;{</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById('welcome-screen').classList.remove('active-screen');</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById('game-screen').classList.add('active-screen');</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loadMission();</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+</div><br><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;loadMission()&nbsp;{</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(currentMission&nbsp;&gt;=&nbsp;missions.length)&nbsp;{</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endGame(true);</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById('mission-step').innerText&nbsp;=&nbsp;`${currentMission&nbsp;+&nbsp;1}/${missions.length}`;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;mission&nbsp;=&nbsp;missions[currentMission];</span>
+</div><br><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;audio&nbsp;=&nbsp;document.getElementById('game-audio');</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;source&nbsp;=&nbsp;document.getElementById('audio-source');</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;source.src&nbsp;=&nbsp;mission.audio;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;audio.load();&nbsp;</span>
+</div><br><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById('instruction-text').innerText&nbsp;=&nbsp;mission.instruction;</span>
+</div><br><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;optionsContainer&nbsp;=&nbsp;document.getElementById('options-container');</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;optionsContainer.innerHTML&nbsp;=&nbsp;'';</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mission.options.forEach(opt&nbsp;=&gt;&nbsp;{</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;btn&nbsp;=&nbsp;document.createElement('button');</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn.className&nbsp;=&nbsp;'option-btn';</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn.innerText&nbsp;=&nbsp;opt;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;locKey&nbsp;=&nbsp;opt.toLowerCase().includes('food')&nbsp;?&nbsp;'food'&nbsp;:&nbsp;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;opt.toLowerCase().includes('dance')&nbsp;?&nbsp;'dance'&nbsp;:&nbsp;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;opt.toLowerCase().includes('craft')&nbsp;?&nbsp;'craft'&nbsp;:&nbsp;'garden';</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn.onclick&nbsp;=&nbsp;()&nbsp;=&gt;&nbsp;checkAnswer(locKey);</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;optionsContainer.appendChild(btn);</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+</div><br><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;checkAnswer(selectedLocation)&nbsp;{</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(selectedLocation&nbsp;===&nbsp;missions[currentMission].correct)&nbsp;{</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;score&nbsp;+=&nbsp;100;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById('score').innerText&nbsp;=&nbsp;score;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;moveCharacter(selectedLocation);</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;currentMission++;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setTimeout(loadMission,&nbsp;1500);</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lives--;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById('lives').innerText&nbsp;=&nbsp;"❤".repeat(lives);</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Wrong&nbsp;turn!&nbsp;Try&nbsp;listening&nbsp;again.");</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(lives&nbsp;&lt;=&nbsp;0)&nbsp;{</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endGame(false);</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+</div><br><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;moveCharacter(locKey)&nbsp;{</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;char&nbsp;=&nbsp;document.getElementById('char');</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;pos&nbsp;=&nbsp;locations[locKey];</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char.style.top&nbsp;=&nbsp;pos.top&nbsp;+&nbsp;'px';</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char.style.left&nbsp;=&nbsp;pos.left&nbsp;+&nbsp;'px';</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+</div><br><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;endGame(win)&nbsp;{</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById('game-screen').classList.remove('active-screen');</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById('completion-screen').classList.add('active-screen');</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById('final-score').innerText&nbsp;=&nbsp;score;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+</div><br><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;restartGame()&nbsp;{</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;currentMission&nbsp;=&nbsp;0;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;score&nbsp;=&nbsp;0;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lives&nbsp;=&nbsp;3;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById('score').innerText&nbsp;=&nbsp;score;</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById('lives').innerText&nbsp;=&nbsp;"❤❤❤";</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById('completion-screen').classList.remove('active-screen');</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById('welcome-screen').classList.add('active-screen');</span>
+</div><div align="left">
+ <span style="font-size:16">&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+</div><br><p></p></body></html>
